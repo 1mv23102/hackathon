@@ -165,3 +165,368 @@ Blood Exists, But Reaches Too Late – Hospitals face critical challenges in mee
 </body>
 
 </html>
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* Reset and Base Styles */
+:root {
+    --primary: #e53e3e;
+    --primary-dark: #c53030;
+    --secondary: #2b6cb0;
+    --text: #2d3748;
+    --text-light: #718096;
+    --background: #fff;
+    --border: #e2e8f0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--text);
+    background-color: #f7fafc;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--background);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    padding: 2rem;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: var(--background);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Tab System */
+.login-tabs {
+    position: relative;
+}
+
+.login-tabs input[type="radio"] {
+    display: none;
+}
+
+.tab-labels {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+}
+
+.tab-labels label {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-labels label:hover {
+    color: var(--primary);
+}
+
+#donor-tab:checked~.tab-labels label[for="donor-tab"],
+#hospital-tab:checked~.tab-labels label[for="hospital-tab"],
+#blood-bank-tab:checked~.tab-labels label[for="blood-bank-tab"] {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.tab-content {
+    position: relative;
+}
+
+.login-form {
+    display: none;
+    padding: 2rem;
+}
+
+#donor-tab:checked~.tab-content #donor-login,
+#hospital-tab:checked~.tab-content #hospital-login,
+#blood-bank-tab:checked~.tab-content #blood-bank-login {
+    display: block;
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.password-input {
+    position: relative;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.forgot-link {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.login-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.register-link a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+}
+
+.feature-card {
+    background: var(--background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.feature-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    color: var(--text);
+}
+
+.feature-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-light);
+}
+
+.feature-btn {
+    display: block;
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.75rem;
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.feature-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Footer */
+footer {
+    background: #2d3748;
+    color: white;
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #4a5568;
+    text-align: center;
+    color: #cbd5e0;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .login-container {
+        margin: 1rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        margin: 2rem 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .tab-labels {
+        flex-direction: column;
+    }
+
+    .tab-labels label {
+        border-bottom: 1px solid var(--border);
+    }
+}
